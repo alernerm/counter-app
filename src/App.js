@@ -13,6 +13,16 @@ class App extends Component {
     ]
   };
 
+  constructor(props) {
+    super(props);
+    console.log('App constr');
+  }
+
+  componentDidMount() {
+    //good place to make an Ajax call to the server and then setState
+    console.log('App Mounted');
+  }
+
   handleIncrement = counter => {
     console.log('handleIncrement clicked');
     const counters = [...this.state.counters];
@@ -36,6 +46,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('App rendered');
     return (
       <React.Fragment>
         <NavBar

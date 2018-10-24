@@ -5,12 +5,23 @@ class Counter extends Component {
     value: this.props.counter.value
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    //here we can check if anyting change and make an addit' Ajax request to get data
+    console.log('prevProps', prevProps);
+    console.log('prevState', prevState);
+
+    if (prevProps.counter.value !== this.props.counter.value) {
+      //get Ajax call and get new data from the server
+    }
+  }
+
   render() {
+    console.log('Counters rendered');
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm">
           Increment
         </button>
